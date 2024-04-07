@@ -25,3 +25,5 @@ There is no way to create sripts yet
   + ...
 + joml
 + junit 3.8.1
+
+*Version: alpha-0.1.0*
