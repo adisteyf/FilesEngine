@@ -27,3 +27,5 @@ There is no way to create sripts yet
 + junit 3.8.1
 
 *Version: alpha-0.1.0*
+
+**by [adk.](https://github.com/adisteyf)**
