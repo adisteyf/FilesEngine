@@ -1,5 +1,13 @@
 package com.fe.jade;
-
+/*
+----------------------------------------
+-  Credits: Adisteyf (adk.)            -
+-  GitHub: https://github.com/adisteyf -
+-  For: Shawarma Team (link below)     -
+- https://discord.gg/invite/8PrbHxjwxv -
+----------------------------------------
+*/
+import com.fe.components.SpriteRender;
 import com.fe.render.Shader;
 import com.fe.render.Texture;
 import com.fe.util.Time;
@@ -31,6 +39,9 @@ public class SceneEditor extends Scene {
     private int vaoID, vboID, eboID;
     private Shader defaultShader;
     private Texture testTexture;
+
+    gObject testobj;
+    private boolean firstTime = true;
     public static boolean TryConnectJoystick = true;
     public SceneEditor() {
         Shader testShader = new Shader("assets/shaders/default.glsl");
@@ -38,10 +49,15 @@ public class SceneEditor extends Scene {
 
     @Override
     public void init() {
+        System.out.println( "Creating test obj" );
+        this.testobj = new gObject("test obj");
+        this.testobj.addComponents(new SpriteRender());
+        this.addGObjectToScene(this.testobj);
+
         this.camera = new Camera(new Vector2f());
         defaultShader = new Shader( "assets/shaders/default.glsl" );
         defaultShader.compile();
-        this.testTexture = new Texture("assets/textures/test.jpg");
+        this.testTexture = new Texture("assets/textures/based_tex.jpg");
 
         vaoID = glGenVertexArrays();
         glBindVertexArray(vaoID);
@@ -117,5 +133,17 @@ public class SceneEditor extends Scene {
         glBindVertexArray(0);
 
         defaultShader.detach();
+
+        if (firstTime) {
+            System.out.println( "Creating g obj" );
+            gObject go = new gObject("game test 2");
+            go.addComponents(new SpriteRender());
+            this.addGObjectToScene(go);
+            firstTime = false;
+        }
+
+        for (gObject go : this.gObjects) {
+            go.update(dt);
+        }
     }
 }

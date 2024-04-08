@@ -1,5 +1,13 @@
 package com.fe;
 import com.fe.jade.Window;
+/*
+----------------------------------------
+-  Credits: Adisteyf (adk.)            -
+-  GitHub: https://github.com/adisteyf -
+-  For: Shawarma Team (link below)     -
+- https://discord.gg/invite/8PrbHxjwxv -
+----------------------------------------
+*/
 
 public class App 
 {
