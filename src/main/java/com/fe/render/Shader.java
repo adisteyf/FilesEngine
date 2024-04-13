@@ -10,42 +10,42 @@ import java.nio.file.Paths;
 
 import static org.lwjgl.opengl.GL11.GL_FALSE;
 import static org.lwjgl.opengl.GL20.*;
-import static org.lwjgl.opengl.GL20.glGetProgramInfoLog;
+import static org.lwjgl.opengl.GL20.glGetShaderInfoLog;
 
 public class Shader {
     private int ShaderProgramID;
     private boolean beingUsed = false;
-    private String vertexSourse;
-    private String fragmentSourse;
+    private String vertexSource;
+    private String fragmentSource;
     private String filepath;
     public Shader(String filepath) {
         this.filepath = filepath;
         try {
-            String sourse = new String( Files.readAllBytes( Paths.get(filepath) ) );
-            String[] splitString = sourse.split("(#type)( )+([a-zA-Z]+)");
+            String source = new String( Files.readAllBytes( Paths.get(filepath) ) );
+            String[] splitString = source.split("(#type)( )+([a-zA-Z]+)");
 
             // поиск 1-го паттерна (то, что после #type 'паттерн')
-            int index = sourse.indexOf("#type") + 6;
-            int eol = sourse.indexOf("\r\n", index);
-            String firstPattern = sourse.substring(index, eol).trim();
+            int index = source.indexOf("#type") + 6;
+            int eol = source.indexOf("\r\n", index);
+            String firstPattern = source.substring(index, eol).trim();
 
             // поиск 2-го паттерна (то, что после #type 'паттерн')
-            index = sourse.indexOf("#type", eol) + 6;
-            eol = sourse.indexOf("\r\n", index);
-            String secondPattern = sourse.substring(index, eol).trim();
+            index = source.indexOf("#type", eol) + 6;
+            eol = source.indexOf("\r\n", index);
+            String secondPattern = source.substring(index, eol).trim();
 
             if (firstPattern.equals("vertex")) {
-                vertexSourse = splitString[1];
+                vertexSource = splitString[1];
             } else if (firstPattern.equals("fragment")) {
-                fragmentSourse = splitString[1];
+                fragmentSource = splitString[1];
             } else {
                 throw new IOException( "UNEXPECTED TOKEN '" + firstPattern + "'" );
             }
 
             if (secondPattern.equals("vertex")) {
-                vertexSourse = splitString[2];
+                vertexSource = splitString[2];
             } else if (secondPattern.equals("fragment")) {
-                fragmentSourse = splitString[2];
+                fragmentSource = splitString[2];
             } else {
                 throw new IOException( "UNEXPECTED TOKEN '" + secondPattern + "'" );
             }
@@ -54,9 +54,6 @@ public class Shader {
             e.printStackTrace();
             assert false : "ERR: COULDN'T OPEN FILE FOR SHADER: '" + filepath + "'";
         }
-
-        System.out.println( vertexSourse );
-        System.out.println( fragmentSourse );
     }
 
     public void compile() {
@@ -65,7 +62,7 @@ public class Shader {
         // Скомпилировать и связать шейдеры
         vertexID = glCreateShader(GL_VERTEX_SHADER);
         // Вкинуть шейдер в видюху
-        glShaderSource(vertexID, vertexSourse);
+        glShaderSource(vertexID, vertexSource);
         glCompileShader(vertexID);
 
         // проверить на err компиляцию
@@ -80,7 +77,7 @@ public class Shader {
         // Скомпилировать и связать шейдеры
         fragmentID = glCreateShader(GL_FRAGMENT_SHADER);
         // Вкинуть шейдер в видюху
-        glShaderSource(fragmentID, fragmentSourse);
+        glShaderSource(fragmentID, fragmentSource);
         glCompileShader(fragmentID);
 
         // проверить на err компиляцию

@@ -2,14 +2,23 @@ package com.fe.jade;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.fe.components.*;
 
 public class gObject {
 
     private String name;
     private List<Component> components;
+    public Transform transform;
     public gObject(String name) {
         this.name = name;
         this.components = new ArrayList<>();
+        this.transform = new Transform();
+    }
+
+    public gObject(String name, Transform transform) {
+        this.name = name;
+        this.components = new ArrayList<>();
+        this.transform = transform;
     }
 
     public <T extends Component> T getComponent(Class<T> componentCls) {
