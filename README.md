@@ -1,6 +1,6 @@
 # Files Engine
 ### About Files Engine
-This is open sourse **2D game** engine on java using `OpenGL` for Windows / MacOS / linux.
+This is open sourse **2D game** engine on java using java.awt for Windows / MacOS / linux.
 The engine currently have 6 basic scripts:
 - **Window**
 - **Shader**
