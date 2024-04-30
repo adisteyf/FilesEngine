@@ -10,7 +10,7 @@ public class KeyHandler implements KeyListener {
 //    private static KeyEvent keyEventTyped;
     static ArrayList<Boolean> keys = new ArrayList<>();
     public KeyHandler() {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             keys.add(false);
         }
     }
@@ -34,6 +34,9 @@ public class KeyHandler implements KeyListener {
             case KeyEvent.VK_D:
                 keys.set(3, true);
                 break;
+            case KeyEvent.VK_J:
+                keys.set(4, true);
+                break;
         }
     }
 
@@ -52,6 +55,8 @@ public class KeyHandler implements KeyListener {
             case KeyEvent.VK_D:
                 keys.set(3, false);
                 break;
+            case KeyEvent.VK_J:
+                keys.set(4, false);
         }
     }
 

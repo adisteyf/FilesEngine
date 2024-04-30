@@ -61,8 +61,6 @@ public class GamePanel extends JPanel implements Runnable {
             update((float) dt /1000000000);
             repaint();
             timer++;
-            System.out.println("DT: " + (float)dt/1000000000);
-
             if ((dt*timer) >= 1000000000) {
                 System.out.println("FPS: " + timer);
                 timer = 0;
@@ -100,7 +98,7 @@ public class GamePanel extends JPanel implements Runnable {
         }
         for (int i = 0; i < entities.toArray().length; i++) {
             if (entities.get(i).texture.image != null) {
-                g2d.drawImage(entities.get(i).texture.image, (int)entities.get(i).transform.x, (int)entities.get(i).transform.y, null);
+                g2d.drawImage(entities.get(i).texture.image, (int)entities.get(i).transform.getX(), (int)entities.get(i).transform.getY(), null);
             }
         }
         g2d.dispose();

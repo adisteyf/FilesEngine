@@ -2,7 +2,8 @@ import com.fe.listener.KeyHandler;
 import com.fe.physic.Entity;
 import com.fe.physic.EntityScripts;
 import com.fe.physic.components.FilesScripts;
-import scene.TileSceneLoader;
+import com.fe.scene.SceneLoader;
+import com.fe.scene.SceneSaver;
 
 import java.io.File;
 
@@ -17,22 +18,28 @@ public class testscr extends FilesScripts {
 //                new Transform(10.f, 10.f, 20.f ,20.f), "test"));
 //        EntityScripts.getEntityByName("test").texture.setImg("assets/textures/based_tex.jpg");
         File file = new File("./assets", "sample.lvl");
-        TileSceneLoader.readScene(file);
+        SceneLoader.readScene(file);
+        File file2 = new File("./assets", "sample2.lvl");
+        SceneSaver.saveScene(file2, 500, 500);
     }
 
     @Override
     public void update(float dt) {
         if (KeyHandler.getKey(0)) {
-            EntityScripts.getEntityByName("test").transform.y -= 100*dt;
+            EntityScripts.getEntityByName("test").transform.addY( -100*dt );
         }
         if (KeyHandler.getKey(1)) {
-            EntityScripts.getEntityByName("test").transform.y += 100*dt;
+            EntityScripts.getEntityByName("test").transform.addY( 100*dt );
         }
         if (KeyHandler.getKey(2)) {
-            EntityScripts.getEntityByName("test").transform.x -= 100*dt;
+            EntityScripts.getEntityByName("test").transform.addX( -100*dt );
         }
         if (KeyHandler.getKey(3)) {
-            EntityScripts.getEntityByName("test").transform.x += 100*dt;
+            EntityScripts.getEntityByName("test").transform.addX( 100*dt );
+        }
+
+        if (KeyHandler.getKey(4)) {
+            System.out.println("J!");
         }
     }
 }
