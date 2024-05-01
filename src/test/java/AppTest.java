@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -5,13 +6,7 @@ import java.util.ArrayList;
  */
 public class AppTest
 {
-    public static void main(String[] args) {
-        convertInt();
-    }
-    public static void convertInt() {
-        String test = "test";
-        for (int i = 0; i < test.length(); i++) {
-            System.out.println((int) test.charAt(i));
-        }
+    public static void main(String[] args) throws IOException {
+//        new FileOutputStream("./assets/sample2.lvl").close();
     }
 }

@@ -29,9 +29,10 @@ public class SceneSaver {
         }
     }
     public static void writeIntSector(OutputStream os, int num) throws IOException {
-        if (num <= 255) {
-            if (num != 170)
+        if (num <= 127) {
+            if (num != 170) {
                 os.write(num);
+            }
             else {
                 os.write(num-1);
                 os.write(1);
@@ -40,13 +41,14 @@ public class SceneSaver {
             int pos = 0;
             for (int i = 0; i < num; i++) {
                 pos++;
-                if (pos==255) {
+                if (pos==127) {
                     os.write(pos);pos=0;
                 }
             }
             if (pos!=0) {
-                if (pos!=170)
+                if (pos!=170) {
                     os.write(pos);
+                }
                 else {
                     os.write(pos-1);
                     os.write(1);

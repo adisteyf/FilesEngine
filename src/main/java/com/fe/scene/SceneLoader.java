@@ -26,15 +26,15 @@ public class SceneLoader {
             for (int i = 0; i < data.length; i++) {
                 data_hex.add(Integer.toHexString(data[i]));
             }
-            System.out.println(data_hex);
-            System.out.println(Arrays.toString(data));
+//            System.out.println(data_hex);
+//            System.out.println(Arrays.toString(data));
             is.close();
             String[] pref = {"46", "65", "4c", "56", "4c"};
             if (isNotCorrupted(data_hex, pref)) {
                 System.out.println("this scene isn't corrupted!");
                 int[] y_limit = readIntSector(data, data_hex, 5);
                 int[] x_limit = readIntSector(data, data_hex, y_limit[1]);
-                System.out.println(y_limit[0]+" "+x_limit[0]);
+//                System.out.println(y_limit[0]+" "+x_limit[0]);
                 ArrayList<Entity> entities_from_scene = readEntities(data, data_hex, x_limit[1], x_limit[0], y_limit[0]);
                 GamePanel.entities.addAll(entities_from_scene);
             }
@@ -122,11 +122,11 @@ public class SceneLoader {
                     new Entity(
                             new Texture(
                                     image, new Transform(
-                                    (float) posX[0], (float) posY[0], (float) sizeX[0], (float) sizeY[0], 500, 500), texture_path),
+                                    (float) posX[0], (float) posY[0], (float) sizeX[0], (float) sizeY[0], x_limit, y_limit), texture_path),
                             new Transform(
-                                    (float) posX[0], (float) posX[0], (float) sizeX[0], (float) sizeY[0], 500, 500), name));
+                                    (float) posX[0], (float) posY[0], (float) sizeX[0], (float) sizeY[0], x_limit, y_limit), name));
 
-            System.out.println(posX[0]+" "+posY[0]+" "+sizeX[0]+" "+sizeY[0]+" "+texture_path+" "+name+" "+readPosInFileForStrArr(data_hex, posInFile));
+//            System.out.println(posX[0]+" "+posY[0]+" "+sizeX[0]+" "+sizeY[0]+" "+texture_path+" "+name+" "+readPosInFileForStrArr(data_hex, posInFile));
             if (Objects.equals(data_hex.get(readPosInFileForStrArr(data_hex, posInFile)), "ffffffdd")) {
                 added = true;
             }

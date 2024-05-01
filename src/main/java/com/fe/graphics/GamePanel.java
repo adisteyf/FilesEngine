@@ -27,6 +27,7 @@ public class GamePanel extends JPanel implements Runnable {
     public ArrayList<String> SCRs = new ArrayList<>();
     KeyHandler keyH = new KeyHandler();
     Thread gTh;
+    public static ArrayList<Object> saveVar = new ArrayList<>();
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(scrWidth, scrHeight));
