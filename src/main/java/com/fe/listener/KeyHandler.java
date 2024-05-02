@@ -21,42 +21,53 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_W:
-                keys.set(0, true);
-                break;
-            case KeyEvent.VK_S:
-                keys.set(1, true);
-                break;
-            case KeyEvent.VK_A:
-                keys.set(2, true);
-                break;
-            case KeyEvent.VK_D:
-                keys.set(3, true);
-                break;
-            case KeyEvent.VK_J:
-                keys.set(4, true);
-                break;
+        switch (e.getKeyChar()) {
+            case 'w':
+                keys.set(0, true);break;
+            case 's':
+                keys.set(1, true);break;
+            case 'a':
+                keys.set(2, true);break;
+            case 'd':
+                keys.set(3, true);break;
+            case 'j':
+                keys.set(4, true);break;
+            case 'ц':
+                keys.set(0, true);break;
+            case 'ы':
+                keys.set(1, true);break;
+            case 'ф':
+                keys.set(2, true);break;
+            case 'в':
+                keys.set(3, true);break;
+            case 'о':
+                keys.set(4, true);break;
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_W:
-                keys.set(0, false);
-                break;
-            case KeyEvent.VK_S:
-                keys.set(1, false);
-                break;
-            case KeyEvent.VK_A:
-                keys.set(2, false);
-                break;
-            case KeyEvent.VK_D:
-                keys.set(3, false);
-                break;
-            case KeyEvent.VK_J:
-                keys.set(4, false);
+        switch (e.getKeyChar()) {
+            case 'w':
+                keys.set(0, false);break;
+            case 's':
+                keys.set(1, false);break;
+            case 'a':
+                keys.set(2, false);break;
+            case 'd':
+                keys.set(3, false);break;
+            case 'j':
+                keys.set(4, false);break;
+            case 'ц':
+                keys.set(0, false);break;
+            case 'ы':
+                keys.set(1, false);break;
+            case 'ф':
+                keys.set(2, false);break;
+            case 'в':
+                keys.set(3, false);break;
+            case 'о':
+                keys.set(4, false);break;
         }
     }
 

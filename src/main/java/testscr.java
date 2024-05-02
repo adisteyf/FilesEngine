@@ -27,16 +27,16 @@ public class testscr extends FilesScripts {
     @Override
     public void update(float dt) {
         if (KeyHandler.getKey(0)) {
-            EntityScripts.getEntityByName("test").transform.addY( -100*dt );
+            EntityScripts.getEntityByName("test").transform.addY( -200*dt );
         }
         if (KeyHandler.getKey(1)) {
-            EntityScripts.getEntityByName("test").transform.addY( 100*dt );
+            EntityScripts.getEntityByName("test").transform.addY( 200*dt );
         }
         if (KeyHandler.getKey(2)) {
-            EntityScripts.getEntityByName("test").transform.addX( -100*dt );
+            EntityScripts.getEntityByName("test").transform.addX( -200*dt );
         }
         if (KeyHandler.getKey(3)) {
-            EntityScripts.getEntityByName("test").transform.addX( 100*dt );
+            EntityScripts.getEntityByName("test").transform.addX( 200*dt );
         }
 
         if (KeyHandler.getKey(4)) {
