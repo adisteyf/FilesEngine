@@ -23,23 +23,18 @@ public class KeyHandler implements KeyListener {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyChar()) {
             case 'w':
-                keys.set(0, true);break;
-            case 's':
-                keys.set(1, true);break;
-            case 'a':
-                keys.set(2, true);break;
-            case 'd':
-                keys.set(3, true);break;
-            case 'j':
-                keys.set(4, true);break;
             case 'ц':
                 keys.set(0, true);break;
+            case 's':
             case 'ы':
                 keys.set(1, true);break;
+            case 'a':
             case 'ф':
                 keys.set(2, true);break;
+            case 'd':
             case 'в':
                 keys.set(3, true);break;
+            case 'j':
             case 'о':
                 keys.set(4, true);break;
         }
@@ -49,23 +44,18 @@ public class KeyHandler implements KeyListener {
     public void keyReleased(KeyEvent e) {
         switch (e.getKeyChar()) {
             case 'w':
-                keys.set(0, false);break;
-            case 's':
-                keys.set(1, false);break;
-            case 'a':
-                keys.set(2, false);break;
-            case 'd':
-                keys.set(3, false);break;
-            case 'j':
-                keys.set(4, false);break;
             case 'ц':
                 keys.set(0, false);break;
+            case 's':
             case 'ы':
                 keys.set(1, false);break;
+            case 'a':
             case 'ф':
                 keys.set(2, false);break;
+            case 'd':
             case 'в':
                 keys.set(3, false);break;
+            case 'j':
             case 'о':
                 keys.set(4, false);break;
         }
