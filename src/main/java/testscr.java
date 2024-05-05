@@ -37,6 +37,9 @@ public class testscr extends FilesScripts {
 
         EntityScripts.getEntityByName("test").addComponent(col_for_test);
         EntityScripts.getEntityByName("wall_test").addComponent(col_for_test_wall);
+        EntityScripts.getEntityByName("test").transform.rectCollider = col_for_test;
+        EntityScripts.getEntityByName("wall_test").transform.rectCollider = col_for_test_wall;
+        EntityScripts.initAll();
         Runnable update = () -> {
             while (true) {
                 col_for_test.update();
@@ -71,9 +74,9 @@ public class testscr extends FilesScripts {
             }
         }
 
-        if (ColliderScripts.isCollide(EntityScripts.getEntityByName("test").getComponent(RectCollider.class),
-                EntityScripts.getEntityByName("wall_test").getComponent(RectCollider.class))) {
-            System.out.println("this work!");
-        }
+//        if (ColliderScripts.isCollide(EntityScripts.getEntityByName("test").getComponent(RectCollider.class),
+//                EntityScripts.getEntityByName("wall_test").getComponent(RectCollider.class))) {
+//            System.out.println("this work!");
+//        }
     }
 }

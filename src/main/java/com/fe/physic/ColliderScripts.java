@@ -19,6 +19,10 @@ public class ColliderScripts {
         return false;
     }
 
+    public static RectCollider getRectColliderByEntity(Entity ent) {
+        return ent.getComponent(RectCollider.class);
+    }
+
 // TODO: Создать метод getColliderByEntity
 
 //    public static void main(String[] args) {

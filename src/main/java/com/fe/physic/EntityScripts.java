@@ -16,8 +16,16 @@ public class EntityScripts {
     }
     public static void entityCreate(Entity entity) {
         GamePanel.entities.add(entity);
+        initAll();
     }
     public static void entityRemove(Entity entity) {
         GamePanel.entities.remove(entity);
+        initAll();
+    }
+
+    public static void initAll() {
+        for (Entity ent : GamePanel.entities) {
+            ent.transform.init();
+        }
     }
 }
