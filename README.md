@@ -8,3 +8,5 @@ In the next release i will add AABB collision mechanic.
 *Version: alpha-0.1.3*
 
 **by [adk.](https://github.com/adisteyf)**
+### Соц. сети:
+тг: [@shawarmateam](https://t.me/shawarmateam)
