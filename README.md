@@ -6,7 +6,7 @@ This is open sourse **2D game** engine on java using `java.awt` for Windows / Ma
 In the next release i will add AABB collision mechanic. 
 #### How this will work:
 - Find center of colliders.
-- Subtract from **X** of main collider X of movable collider.
+- Subtract from **X** of main collider **X** of movable collider.
 - It's the same with **Y**.
 - Compare absolute of **X** and **Y**, which is bigger?
   - This is **X** and it's positive = **right** side.
