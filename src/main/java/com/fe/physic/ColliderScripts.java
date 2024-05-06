@@ -23,8 +23,6 @@ public class ColliderScripts {
         return ent.getComponent(RectCollider.class);
     }
 
-// TODO: Создать метод getColliderByEntity
-
 //    public static void main(String[] args) {
 //        RectCollider test1 = new RectCollider(0, 0, 10, 10);
 //        RectCollider test2 = new RectCollider(5, 5, 10, 10);
