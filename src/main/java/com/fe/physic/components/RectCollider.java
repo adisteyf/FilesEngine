@@ -9,7 +9,7 @@ public class RectCollider extends ComponentStruct {
     float posXoffset, posYoffset;
     float posX, posY;
     float sizeX, sizeY;
-    public float[] TLdot, TRdot, DLdot, DRdot;
+    public float[] TLdot, TRdot, DLdot, DRdot, Center;
     public float[][] dots;
 
     public RectCollider(float posXoffset, float posYoffset, float sizeX, float sizeY) {
@@ -21,7 +21,8 @@ public class RectCollider extends ComponentStruct {
         TRdot = new float[] {posX+sizeX, posY};
         DLdot = new float[] {posX, posY+sizeY};
         DRdot = new float[] {posX+sizeX, posY+sizeY};
-        dots = new float[][] {TLdot, TRdot, DLdot, DRdot};
+        Center = new float[] {posX+(sizeX/2), posY+(sizeY/2)};
+        dots = new float[][] {TLdot, TRdot, DLdot, DRdot, Center};
     }
 
     public void update() {
@@ -32,6 +33,7 @@ public class RectCollider extends ComponentStruct {
         TRdot = new float[] {posX+sizeX, posY};
         DLdot = new float[] {posX, posY+sizeY};
         DRdot = new float[] {posX+sizeX, posY+sizeY};
-        dots = new float[][] {TLdot, TRdot, DLdot, DRdot};
+        Center = new float[] {posX+(sizeX/2), posY+(sizeY/2)};
+        dots = new float[][] {TLdot, TRdot, DLdot, DRdot, Center};
     }
 }

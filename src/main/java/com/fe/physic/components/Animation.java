@@ -43,7 +43,7 @@ public class Animation extends ComponentStruct {
     }
 
     public void update(float dt) {
-        // DO NOT RUN THIS IN CYCLE!
+        // RUN THIS IN CYCLE!
         if (currentFrame >= frames.size())
             currentFrame = 0;
 
@@ -55,12 +55,6 @@ public class Animation extends ComponentStruct {
             e.printStackTrace();
         }
         currentFrame++;
-        if (!stopUpdate)
-            update(dt);
         // TODO: Протестить этот компонент.
-    }
-
-    public void setStopUpdate(boolean val) {
-        stopUpdate = val;
     }
 }

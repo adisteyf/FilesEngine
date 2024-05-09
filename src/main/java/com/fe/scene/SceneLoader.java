@@ -122,9 +122,9 @@ public class SceneLoader {
                     new Entity(
                             new Texture(
                                     image, new Transform(
-                                    (float) posX[0], (float) posY[0], (float) sizeX[0], (float) sizeY[0], x_limit, y_limit), texture_path),
+                                    (float) posX[0], (float) posY[0], (float) sizeX[0], (float) sizeY[0], x_limit, y_limit, null), texture_path),
                             new Transform(
-                                    (float) posX[0], (float) posY[0], (float) sizeX[0], (float) sizeY[0], x_limit, y_limit), name));
+                                    (float) posX[0], (float) posY[0], (float) sizeX[0], (float) sizeY[0], x_limit, y_limit, null), name)); // TODO: Пофиксить Transform чтобы он автоматом заполнял поле ent
 
 //            System.out.println(posX[0]+" "+posY[0]+" "+sizeX[0]+" "+sizeY[0]+" "+texture_path+" "+name+" "+readPosInFileForStrArr(data_hex, posInFile));
             if (Objects.equals(data_hex.get(readPosInFileForStrArr(data_hex, posInFile)), "ffffffdd")) {
