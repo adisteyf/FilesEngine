@@ -3,8 +3,9 @@
 This is open sourse **2D game** engine on java using `java.awt` for Windows / MacOS / linux.
 
 ### Info about releases
-In the next release i will add AABB collision mechanic. 
-#### How this will work:
+In the next release i will add Scene Manager. 
+
+#### How colliders work:
 - Find center of colliders.
 - Subtract from **X** of main collider **X** of movable collider.
 - It's the same with **Y**.
