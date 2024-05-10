@@ -35,6 +35,7 @@ public class SceneLoader {
                 int[] y_limit = readIntSector(data, data_hex, 5);
                 int[] x_limit = readIntSector(data, data_hex, y_limit[1]);
 //                System.out.println(y_limit[0]+" "+x_limit[0]);
+                System.out.println(x_limit[1]);
                 ArrayList<Entity> entities_from_scene = readEntities(data, data_hex, x_limit[1], x_limit[0], y_limit[0]);
                 GamePanel.entities.addAll(entities_from_scene);
             }
@@ -112,6 +113,7 @@ public class SceneLoader {
             String texture_path = readStringSector(data_hex, sizeY[1]);
             posInFile = readPosInFileForStrArr(data_hex, sizeY[1]);
             String name = readStringSector( data_hex, posInFile );
+            posInFile = readPosInFileForStrArr(data_hex, posInFile);
             BufferedImage image;
             try {
                 image = ImageIO.read(new File(texture_path));
@@ -122,12 +124,12 @@ public class SceneLoader {
                     new Entity(
                             new Texture(
                                     image, new Transform(
-                                    (float) posX[0], (float) posY[0], (float) sizeX[0], (float) sizeY[0], x_limit, y_limit, null), texture_path),
+                                    (float) posX[0], (float) posY[0], (float) sizeX[0], (float) sizeY[0], x_limit, y_limit), texture_path),
                             new Transform(
-                                    (float) posX[0], (float) posY[0], (float) sizeX[0], (float) sizeY[0], x_limit, y_limit, null), name)); // TODO: Пофиксить Transform чтобы он автоматом заполнял поле ent
+                                    (float) posX[0], (float) posY[0], (float) sizeX[0], (float) sizeY[0], x_limit, y_limit), name)); // TODO: Пофиксить Transform чтобы он автоматом заполнял поле ent
 
 //            System.out.println(posX[0]+" "+posY[0]+" "+sizeX[0]+" "+sizeY[0]+" "+texture_path+" "+name+" "+readPosInFileForStrArr(data_hex, posInFile));
-            if (Objects.equals(data_hex.get(readPosInFileForStrArr(data_hex, posInFile)), "ffffffdd")) {
+            if (Objects.equals(data_hex.get(posInFile), "ffffffdd")) {
                 added = true;
             }
         }

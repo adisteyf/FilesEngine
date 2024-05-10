@@ -7,20 +7,19 @@ import com.fe.physic.Entity;
 import java.lang.Math;
 import java.util.ArrayList;
 
-public class Transform extends ComponentStruct {
+public class Transform {
     private float x, y;
     private float x_limit, y_limit;
     public float sizeX, sizeY;
     public RectCollider rectCollider = null;
     ArrayList<RectCollider> rc = new ArrayList<>();
-    public Transform(float x, float y, float sizeX, float sizeY, float x_limit, float y_limit, Entity ent) {
+    public Transform(float x, float y, float sizeX, float sizeY, float x_limit, float y_limit) {
         this.x = x;
         this.y = y;
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         this.x_limit = x_limit;
         this.y_limit = y_limit;
-        this.ent = ent;
 
         for (Entity ent_in_gp : GamePanel.entities) {
             if (ent_in_gp.getComponent(RectCollider.class) != null) {
@@ -68,13 +67,11 @@ public class Transform extends ComponentStruct {
                         HorOrVer = false;
                     }
                 }
-                System.out.println(isCollide+": x");
             }
-            if (!isCollide) {
+            if (!isCollide || !HorOrVer) {
                 this.x += x;
             } else if (!blockSide && x > 0 || blockSide && x < 0) {
-                if (HorOrVer)
-                    this.x += x;
+                this.x += x;
             }
         }
     }
@@ -103,14 +100,12 @@ public class Transform extends ComponentStruct {
                             blockSide = false;
                     }
                 }
-                System.out.println(isCollide);
             }
-                if (!isCollide) {
-                    this.y += y;
-                } else if (!blockSide && y > 0 || blockSide && y < 0) {
-                    if (!HorOrVer)
-                        this.y += y;
-                }
+            if (!isCollide || HorOrVer) {
+                this.y += y;
+            } else if (!blockSide && y > 0 || blockSide && y < 0) {
+                this.y += y;
+            }
         }
     }
     public void init() {
