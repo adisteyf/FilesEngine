@@ -1,14 +1,11 @@
-import com.fe.physic.components.RectCollider;
-import com.fe.physic.components.Texture;
+package com.fe.graphics;
+
 import org.lwjgl.*;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.awt.*;
 import java.nio.*;
 
 import static org.lwjgl.glfw.Callbacks.*;
@@ -17,7 +14,7 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-public class AppTest {
+public class Window {
 
     // The window handle
     private long window;
@@ -89,8 +86,6 @@ public class AppTest {
         // creates the GLCapabilities instance and makes the OpenGL
         // bindings available for use.
         GL.createCapabilities();
-        glEnable(GL_TEXTURE_2D);
-        RenderTexture test = new RenderTexture("/home/adisteyf/IdeaProjects/FilesEngine/assets/textures/based_tex.jpg");
 
         // Set the clear color
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -100,30 +95,15 @@ public class AppTest {
         while ( !glfwWindowShouldClose(window) ) {
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the frame buffer
 
-            test.bind();
-
-            glBegin(GL_QUADS);
-                glTexCoord2f(0,0);
-                glVertex2f(-.5f, .5f);
-
-                glTexCoord2f(1,0);
-                glVertex2f(.5f, .5f);
-
-                glTexCoord2f(1,1);
-                glVertex2f(.5f, -.5f);
-
-                glTexCoord2f(0,1);
-                glVertex2f(-.5f, -.5f);
-            glEnd();
-
             glfwSwapBuffers(window); // swap the color buffers
+
             // Poll for window events. The key callback above will only be
             // invoked during this call.
             glfwPollEvents();
         }
     }
 
-    public static void main(String[] args) {
-        new AppTest().run();
-    }
+//    public static void main(String[] args) {
+//        new Window().run();
+//    }
 }

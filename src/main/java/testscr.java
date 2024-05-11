@@ -26,9 +26,9 @@ public class testscr extends FilesScripts {
         SceneLoader.readScene(file);
         GamePanel.saveVar.add(true);
 
-        EntityScripts.entityCreate(new Entity(new Texture(null, new Transform(20.f, 20.f, 100.f ,100.f, 500, 500),
-                "assets/textures/based_tex.jpg"),
-                new Transform(20.f, 20.f, 20.f ,20.f, 500, 500), "wall_test"));
+//        EntityScripts.entityCreate(new Entity(new Texture(null, new Transform(20.f, 20.f, 100.f ,100.f, 500, 500),
+//                "assets/textures/based_tex.jpg"),
+//                new Transform(20.f, 20.f, 20.f ,20.f, 500, 500), "wall_test"));
 
         RectCollider col_for_test = new RectCollider(0,0,100f,100f);
         RectCollider col_for_test_wall = new RectCollider(0,0,100f,100f);
