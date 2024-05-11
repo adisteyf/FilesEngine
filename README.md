@@ -3,7 +3,7 @@
 This is open sourse **2D game** engine on java using `java.awt` for Windows / MacOS / linux.
 
 ### Info about releases
-In the next release i will add Scene Manager. 
+In the next release i will add Scene Manager and change library to `LWJGL`. 
 
 #### How colliders work:
 - Find center of colliders.
