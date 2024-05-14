@@ -83,6 +83,7 @@ public class AppTest {
     public void loop() {
         // Poll for window events. The key callback above will only be
         // invoked during this call.
+        System.out.println(window);
         if (glfwGetKey(window, GLFW_KEY_F) == GL_TRUE) {
             cam.transform.addX(-50);
             cam.init();

@@ -25,9 +25,10 @@ public class Window {
 
     // The window handle
     private static long window;
-    public AppTest mainClass;
+    public static AppTest mainClass;
 
     public void run() {
+        this.mainClass = new AppTest();
         this.init();
         this.loop();
 
@@ -38,7 +39,7 @@ public class Window {
         // Terminate GLFW and free the error callback
         glfwTerminate();
         glfwSetErrorCallback(null).free();
-        this.mainClass = new AppTest();
+        System.out.println(mainClass+": 1");
     }
 
     public void init() {
@@ -89,6 +90,7 @@ public class Window {
     }
 
     public void loop() {
+        System.out.println(mainClass+": 2");
         mainClass.run();
         // Set the clear color
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
