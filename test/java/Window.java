@@ -39,7 +39,6 @@ public class Window {
         // Terminate GLFW and free the error callback
         glfwTerminate();
         glfwSetErrorCallback(null).free();
-        System.out.println(mainClass+": 1");
     }
 
     public void init() {
@@ -90,18 +89,8 @@ public class Window {
     }
 
     public void loop() {
-        System.out.println(mainClass+": 2");
         mainClass.run();
-        // Set the clear color
-        glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-
-        // Run the rendering loop until the user has attempted to close
-        // the window or has pressed the ESCAPE key.
-        while ( !glfwWindowShouldClose(window) ) {
-            glfwSwapBuffers(window); // swap the color buffers
-            glfwPollEvents();
-            mainClass.loop();
-        }
+        mainClass.loop();
     }
     public static long getWindow() {
         return window;
