@@ -2,6 +2,14 @@ import com.fe.physic.components.Transform;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.lwjgl.opengl.*;
+import render.Camera;
+import render.PosTexture;
+import render.RenderTexture;
+import render.Shader;
+import scripts.ScriptsReader;
+
+import java.lang.reflect.InvocationTargetException;
+
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 
@@ -29,10 +37,17 @@ public class AppTest {
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         PosTexture texture = new PosTexture();
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        ScriptsReader scrReader = new ScriptsReader();
 
         while (!glfwWindowShouldClose(window)) {
             glfwSwapBuffers(window); // swap the color buffers
             glfwPollEvents();
+            try {
+                scrReader.runUpdateInSCRs(0f);
+            } catch (ClassNotFoundException | NoSuchMethodException | InvocationTargetException |
+                     IllegalAccessException | InstantiationException e) {
+                throw new RuntimeException(e);
+            }
 
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
