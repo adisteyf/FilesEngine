@@ -14,6 +14,17 @@ In the next release i will add Scene Manager and change library to `LWJGL`.
   - This is **X** and it's negative = **left** side.
   - This is **Y** and it's positive = **bottom** side.
   - This is **Y** and it's negative = **top** side.
+ 
+### Plan of **alpha-0.2.0 release**:
+- [x] сделать систему передвижения через матрикс
+- [ ] подключить к новому движку старые скрипты
+- [x] ---- подключить систему скриптов
+- [ ] ---- подключить систему колизий
+- [ ] ---- подключить систему существ
+- [ ] ---- подключить систему текстур
+- [ ] ---- подключить систему сцен
+- [ ] ---- подключить систему трансформ
+- [ ] закатать релиз alpha-0.2.0
 
 *Version: alpha-0.1.3*
 
