@@ -28,7 +28,7 @@ public class PosTexture {
         };
         model = new Model(vertices, texture, indices);
     }
-    public void renderTexture(RenderTexture texture, int x, int y, Shader shader, Matrix4f world, Camera cam) {
+    public void renderTexture(RenderTexture texture, float x, float y, Shader shader, Matrix4f world, Camera cam) {
         shader.bind();
         texture.bind(0);
         Matrix4f tex_pos = new Matrix4f().translate(new Vector3f(x, y, 0));
