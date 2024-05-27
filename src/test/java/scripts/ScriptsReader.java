@@ -19,7 +19,8 @@ public class ScriptsReader {
         try {
             runStartInSCRs(SCRs);
         } catch (ClassNotFoundException | InvocationTargetException | NoSuchMethodException | IllegalAccessException | InstantiationException e) {
-            System.out.println("ERROR DURING runStartInSCRs(SCRs);");
+            System.out.println("ERROR DURING runStartInSCRs(SCRs);\n");
+            e.printStackTrace();
         }
     }
 

@@ -16,8 +16,10 @@ public class RenderTexture {
     private int id;
     private int width;
     private int height;
+    public String texture_path;
 
     public RenderTexture(String filepath) {
+        texture_path=filepath;
         try {
             BufferedImage image = ImageIO.read(new File(filepath));
             int width = image.getWidth(), height = image.getHeight();

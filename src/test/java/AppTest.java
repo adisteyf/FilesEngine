@@ -1,4 +1,3 @@
-import physic.Entity;
 import com.fe.physic.components.Transform;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
@@ -6,7 +5,6 @@ import org.lwjgl.opengl.*;
 import physic.Timer;
 import render.Camera;
 import render.PosTexture;
-import render.RenderTexture;
 import render.Shader;
 import scripts.ScriptsReader;
 
@@ -20,7 +18,9 @@ public class AppTest {
     public static ArrayList<Entity> ents = new ArrayList<>();
     private static Camera cam;
     private static long window;
-    private static int FPS = 120;
+    private static int FPS = 60;
+    public static boolean canRender = true;
+    public double sec_per_frame = 1.0/FPS;
     public void run() {
         window = Window.getWindow();
         GL.createCapabilities();
@@ -28,8 +28,6 @@ public class AppTest {
         glEnable(GL_TEXTURE_2D);
     }
     public void loop() {
-        int x=0;
-        int y=0;
         Shader shader = new Shader("shader");
         Matrix4f projection = new Matrix4f()
                 .ortho2D(-600/2, 600/2, -600/2, 600/2);
@@ -42,48 +40,33 @@ public class AppTest {
         PosTexture texture = new PosTexture();
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         ScriptsReader scrReader = new ScriptsReader();
-        double sec_per_frame = 1.0/FPS;
-        double time = Timer.getTime();
-        double timer = 0;
-        double frame_time=0;
-        int frames=0;
+        double start = Timer.getTime();
+        double end = Timer.getTime();
+        double dt = 0;
 
         while (!glfwWindowShouldClose(window)) {
-            boolean can_render = false;
-            double time_2 = Timer.getTime();
-            double passed = time_2-time;
-            timer+=passed;
-            frame_time+=passed;
-
-            time = time_2;
-
-            while (timer >= sec_per_frame) {
-                timer-=sec_per_frame;
-                can_render = true;
-
-                if (frame_time >= 1) {
-                    frame_time=0;
-                    System.out.println("FPS: "+frames);
-                    frames=0;
-                }
-            }
-
-            if (can_render) {
-                glfwSwapBuffers(window); // swap the color buffers
-                glfwPollEvents();
+            glfwPollEvents();
+            if (canRender) {
+                start = end;
+                glfwSwapBuffers(window); // swap the color buffer
                 try {
-                    scrReader.runUpdateInSCRs(0f);
+                    scrReader.runUpdateInSCRs((float) dt);
                 } catch (ClassNotFoundException | NoSuchMethodException | InvocationTargetException |
                          IllegalAccessException | InstantiationException e) {
                     throw new RuntimeException(e);
                 }
 
                 glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-//                texture.renderTexture(testent.texture, testent.transform.getX(), testent.transform.getY(), shader, scale, cam);
+                //                texture.renderTexture(testent.texture, testent.transform.getX(), testent.transform.getY(), shader, scale, cam);
                 for (Entity ent : ents) {
                     texture.renderTexture(ent.texture, ent.transform.getX(), ent.transform.getY(), shader, scale, cam);
                 }
-                frames++;
+                end = Timer.getTime();
+                dt = (end - start)/sec_per_frame;
+                canRender=false;
+            }
+            if (Timer.getTime() > start+sec_per_frame) {
+                canRender=true;
             }
         }
     }

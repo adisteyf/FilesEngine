@@ -1,6 +1,3 @@
-import com.fe.graphics.GamePanel;
-import physic.Entity;
-
 import java.util.ArrayList;
 
 public class EntityScripts {

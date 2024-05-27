@@ -69,7 +69,6 @@ public class Window {
         glfwMakeContextCurrent(window);
         // Enable v-sync
         glfwSwapInterval(1);
-
         // Make the window visible
         glfwShowWindow(window);
     }
