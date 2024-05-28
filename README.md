@@ -1,6 +1,6 @@
 # Files Engine
 ### About Files Engine
-This is open sourse **2D game** engine on java using `LWJGL` for Windows / MacOS / linux.
+This is open sourse **2D game** engine on java using `LWJGL` for Windows / macOS / linux.
 
 ### Info about releases
 Im thinking about how to add 4 natives for `windows` and `linux`.
