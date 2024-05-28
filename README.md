@@ -1,9 +1,9 @@
 # Files Engine
 ### About Files Engine
-This is open sourse **2D game** engine on java using `java.awt` for Windows / MacOS / linux.
+This is open sourse **2D game** engine on java using `LWJGL` for Windows / MacOS / linux.
 
 ### Info about releases
-In the next release i will add Scene Manager and change library to `LWJGL`. 
+Im thinking about how to add 4 natives for `windows` and `linux`.
 
 #### How colliders work:
 - Find center of colliders.
