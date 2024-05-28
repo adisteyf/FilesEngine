@@ -3,7 +3,7 @@
 This is open sourse **2D game** engine on java using `LWJGL` for Windows / macOS / linux.
 
 ### Info about releases
-Im thinking about how to add 4 natives for `windows` and `linux`.
+I'm thinking about how to add 4 natives for `windows` and `linux`.
 
 #### How colliders work:
 - Find center of colliders.
