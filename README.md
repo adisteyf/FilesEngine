@@ -3,7 +3,7 @@
 This is open sourse **2D game** engine on java using `LWJGL` for Windows / macOS / linux.
 
 ### Info about releases
-I'm thinking about how to add 4 natives for `windows` and `linux`.
+In the next release i will push a **SceneManager** for redacting scenes.
 
 #### How colliders work:
 - Find center of colliders.
@@ -15,7 +15,7 @@ I'm thinking about how to add 4 natives for `windows` and `linux`.
   - This is **Y**, and it's positive = **bottom** side.
   - This is **Y**, and it's negative = **top** side.
 
-*Version: alpha-0.1.3*
+*Version: alpha-0.2.0*
 
 **START fe-collector.sh ONLY IN "content root" (.../IdeaProjects/FilesEngine folder)**
 
