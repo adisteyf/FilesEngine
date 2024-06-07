@@ -1,21 +1,6 @@
 # Files Engine
-### About Files Engine
-This is open sourse **2D game** engine on java using `LWJGL` for Windows / macOS / linux.
-
-### Info about releases
-In the next release i will push a **SceneManager** for redacting scenes.
-
-#### How colliders work:
-- Find center of colliders.
-- Subtract from **X** of main collider **X** of movable collider.
-- It's the same with **Y**.
-- Compare absolute of **X** and **Y**, which is bigger?
-  - This is **X**, and it's positive = **right** side.
-  - This is **X**, and it's negative = **left** side.
-  - This is **Y**, and it's positive = **bottom** side.
-  - This is **Y**, and it's negative = **top** side.
-
-*Version: alpha-0.2.0*
+## This isn't actual version of FilesEngine
+See [github.com/adisteyf/fe-tools](https://github.com/adisteyf/fe-tools)
 
 **START fe-collector.sh ONLY IN "content root" (.../IdeaProjects/FilesEngine folder)**
 
